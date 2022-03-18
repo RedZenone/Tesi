@@ -8,6 +8,9 @@ TagManager:
   - land
   - grid
   - terraformer
+  - civ
+  - city
+  - manager
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - Water
   - UI
   - terrain
-  - 
+  - city
   - 
   - 
   - 

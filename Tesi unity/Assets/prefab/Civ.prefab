@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8431924329424231599}
   m_Layer: 0
   m_Name: Civ
-  m_TagString: Untagged
+  m_TagString: civ
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea630f3d88be384883ce2fe05610e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  city_prefab: {fileID: 5420897256993887291, guid: a9606cc141b7f044b98d4e61598c0b56, type: 3}

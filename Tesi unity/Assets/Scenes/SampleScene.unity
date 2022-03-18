@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 908353020}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -758,6 +758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8efa3fae736a9d9478430968dc560c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 0
+  timer: {fileID: 995296934}
 --- !u!1 &995296934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1083,7 @@ MonoBehaviour:
   radius_text: {fileID: 2101819664}
   terraform_dropdown: {fileID: 1068065058}
   terraform_slider: {fileID: 1757621100}
+  gen: {fileID: 0}
 --- !u!1 &1068065056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,6 +1179,8 @@ MonoBehaviour:
     - m_Text: Mountain
       m_Image: {fileID: 0}
     - m_Text: Deserts
+      m_Image: {fileID: 0}
+    - m_Text: Civilization
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1836,7 +1841,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1802773086}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 908353020}
+        m_TargetAssemblyTypeName: GenerationController, Assembly-CSharp
+        m_MethodName: StopTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1802773086
 MonoBehaviour:
   m_ObjectHideFlags: 0

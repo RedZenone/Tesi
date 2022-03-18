@@ -184,3 +184,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7a8eecc83b12d4cb6bd7598e92d6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  civ_prefab: {fileID: 728026855173440233, guid: 018f26b3f5dfb91498863c8a2eda3c39, type: 3}

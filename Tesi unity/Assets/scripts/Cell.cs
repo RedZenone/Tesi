@@ -11,6 +11,7 @@ public class Cell : MonoBehaviour
     private int y;
     SpriteRenderer sprrenderer;
     CellGraph graph;
+    public GameObject civ_prefab;
     float maxfertility;
     float fertility;
     private Civ civ;
@@ -46,6 +47,10 @@ public class Cell : MonoBehaviour
         else if (type==celltypes.grassland && graph.terraformer.GetTerType()==TerraformController.terraformtype.mountain)
         {
             Mountainification(graph.terraformer.terraform_radius);
+        }
+        else if (type!=celltypes.water && graph.terraformer.GetTerType()==TerraformController.terraformtype.civ)
+        {
+            FoundCivilization();
         }
 	}
     public void Landification(int perc)
@@ -106,7 +111,11 @@ public class Cell : MonoBehaviour
         }
     }
 
-
+    public void FoundCivilization()
+    {
+        GameObject civ = Instantiate(civ_prefab, transform);
+        civ.GetComponent<Civ>().Founding(this, Color.red);
+    }
 
 
 //____________VARIABLES______________________________________

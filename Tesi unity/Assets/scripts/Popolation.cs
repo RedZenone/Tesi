@@ -23,7 +23,9 @@ public class Popolation : MonoBehaviour
 
     public float Produce(float fertility)
     {
+        
         float food = food_production*food_production*fertility;
+        //Debug.Log("      POP FOOD PRODUCTION: " + food);
         return food;
     }
     public float Fight()

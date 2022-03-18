@@ -9,13 +9,15 @@ public class TerraformController : MonoBehaviour
     {
         grassland,
         mountain,
-        desert
+        desert,
+        civ
     }
     private terraformtype current_terraform;
     public int terraform_radius;
     public Text radius_text;
     public Dropdown terraform_dropdown;
     public Slider terraform_slider;
+    public GenerationController gen;
     void Start()
     {
         current_terraform=terraformtype.grassland;
@@ -28,10 +30,11 @@ public class TerraformController : MonoBehaviour
             case 0: current_terraform=terraformtype.grassland; break;
             case 1: current_terraform=terraformtype.mountain; break;
             case 2: current_terraform=terraformtype.desert; break;
+            case 3: current_terraform=terraformtype.civ; break;
         }
         
     }
-    public void UpdateTerRad ()
+    public void UpdateTerRad () // update terraformer radius
     {
         terraform_radius=(int) terraform_slider.value;
         radius_text.text=""+terraform_radius;

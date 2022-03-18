@@ -8,13 +8,14 @@ public class City : MonoBehaviour
     private List<Popolation> pop;
     private List<Popolation> exodus;
     private bool deficit;
-    private float food;
+    public float food;
 
 
     public void Found(Cell cell, List<Popolation> pop, Civ civ)
     {
         this.cell=cell;
         this.pop=pop;
+        exodus=new List<Popolation>();
         deficit=false;
         this.cell.SetCiv(civ);
     }
@@ -42,6 +43,7 @@ public class City : MonoBehaviour
         for (int i = 0; i < j; i++)
         {
             random = Random.Range(0,pop.Count);
+            Debug.Log("kill " + j + " out of " + pop.Count);
             pop.RemoveAt(random);
         }
     }
@@ -49,7 +51,7 @@ public class City : MonoBehaviour
     {
         for (int i = 0; i < j; i++)
         {
-            pop.RemoveAt(i);
+            pop.RemoveAt(0);
         }
     }
 
@@ -70,17 +72,21 @@ public class City : MonoBehaviour
         {
             case 0:
                 civilian = new Popolation(Avg(pop1.GetFoodProd(),pop2.GetFoodProd()), Avg(pop1.GetFight(),pop2.GetFight()));
+                AddPop(civilian);
                 break;
             case 1:
                 civilian = new Popolation(Avg(pop1.GetFoodProd(),pop2.GetFoodProd())+0.1f, Avg(pop1.GetFight(),pop2.GetFight())-0.1f);
+                AddPop(civilian);
                 break;
             case 2:
                 civilian = new Popolation(Avg(pop1.GetFoodProd(),pop2.GetFoodProd())-0.1f, Avg(pop1.GetFight(),pop2.GetFight())+0.1f);
+                AddPop(civilian);
                 break;
         }
     }
     public void ProduceFood()
     {
+        //Debug.Log("      CITY FOOD PRODUCTION:");
         foreach (Popolation civilian in pop)
         {
             food+=civilian.Produce(cell.GetFertility());
@@ -92,7 +98,8 @@ public class City : MonoBehaviour
         food-=pop.Count*1.4f;
         if (food<0)
         {
-            deficit=true;            
+            deficit=true;
+            Debug.Log("CITY IN DEFICIT, food ==> " + food);
         }
     }
     public float GetFood()
